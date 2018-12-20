@@ -1,0 +1,8 @@
+*¿Que son los robots?
+1F-Son humanos
+2F-Son producto de tu imagincación
+3T-Ans3
+*¿Quien creo a los robots?
+1F-ans1
+2T-ans2
+3F-ans3
