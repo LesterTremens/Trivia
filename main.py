@@ -1,3 +1,4 @@
+# coding=utf-8
 import Componentes
 from Componentes import Boton
 import pygame
@@ -31,21 +32,6 @@ def main():
     numQA = 0
     #LoopPrincipal
     while gameOver !=True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                gameOver = True
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    gameOver = True
-                if event.key == pygame.K_q:
-                    t_f = Componentes.textop(Componentes.respuestaT("q"))
-                    num +=1
-                if event.key == pygame.K_w:
-                    t_f = Componentes.textop(Componentes.respuestaT("w"))
-                    num +=1
-                if event.key == pygame.K_e:
-                    t_f = Componentes.textop(Componentes.respuestaT("e"))
-                    num +=1
 
         pantalla.fill(blanco)
         reloj.tick(30)
@@ -64,7 +50,34 @@ def main():
             botonR.update(pantalla)
             botonV.update(pantalla)
             botonA.update(pantalla)
-            pantalla.blit(t_f,(1000,250))
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                gameOver = True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    gameOver = True
+                if event.key == pygame.K_q:
+                    t_f = Componentes.textop(Componentes.respuestaT("q"))
+                    pantalla.blit(t_f,(1000,250))
+                    pygame.time.delay(400)
+                    t_f = pygame.Surface([0,0])
+                    num +=1
+                if event.key == pygame.K_w:
+                    t_f = Componentes.textop(Componentes.respuestaT("w"))
+                    pantalla.blit(t_f,(1000,250))
+                    pygame.time.delay(400)
+                    t_f = pygame.Surface([0,0])
+                    num +=1
+
+                if event.key == pygame.K_e:
+                    t_f = Componentes.textop(Componentes.respuestaT("e"))
+                    pantalla.blit(t_f,(1000,250))
+                    pygame.time.delay(400)
+                    t_f = pygame.Surface([0,0])
+                    num +=1
+
+
         #Actualizamos la pantalla
         pygame.display.update()
     pygame.quit()
