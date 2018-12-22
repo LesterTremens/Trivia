@@ -3,6 +3,7 @@ import Componentes
 from Componentes import Boton
 import pygame
 import SystemTrivia
+import Escenas
 def main():
     #Inicializamos modulos de python
     pygame.init()
@@ -14,70 +15,63 @@ def main():
     pygame.display.set_caption("Trivia")
     #Fotogramaas por segundo a los que se ejecuta los update
     reloj = pygame.time.Clock()
+    #Cargando Sonidos
+    correcto = pygame.mixer.Sound("Correcto.wav")
+    incorrecto = pygame.mixer.Sound("Incorrecto.wav")
     #Cargando imagenes
-    bRojo = pygame.image.load("botonRojo.png")
-    bVerde = pygame.image.load("botonVerde.png")
-    bAmarillo = pygame.image.load("botonAmarillo.png")
-    finish = pygame.image.load("finish.png")
-    fondo = pygame.image.load("fondo6.png")
-    blanco=(112,150,163)
-
-    botonR = Boton(bRojo,300,750)
-    botonV = Boton(bVerde,800,750)
-    botonA = Boton(bAmarillo,1300,750)
+    fondo = pygame.image.load("FondoA.png")
+    #Color del bg
+    bg=(199,174,180)
     #Superficie invisible para pueba de la respuesta
     t_f = pygame.Surface([0,0])
     gameOver = False
     num = 0
-    numQA = 0
+    inicio=-1
+    correctas =0
+    numQA = len(Componentes.quiz_ans)
     #LoopPrincipal
     while gameOver !=True:
 
-        pantalla.fill(blanco)
-        reloj.tick(30)
-        Componentes.dibujar_panel(fondo,pantalla,x,y)
-        if (num >= len(Componentes.quiz_ans)):
-            pantalla.blit(finish,(700,243))
-        elif (num < len(Componentes.quiz_ans)):
-            numQA = num
-            #Colocamos donde se mostrara el texto de la pregunta.
-            pantalla.blit(Componentes.texto(numQA,"question"),(280,100))
-            #Colocamos el texto de las posibles respuestas
-            pantalla.blit(Componentes.texto(numQA,"ans1"),(350,250))
-            pantalla.blit(Componentes.texto(numQA,"ans2"),(350,400))
-            pantalla.blit(Componentes.texto(numQA,"ans3"),(350,550))
-            #Botones
-            botonR.update(pantalla)
-            botonV.update(pantalla)
-            botonA.update(pantalla)
+        pantalla.fill(bg)
+        reloj.tick(60)
+        #Componentes.dibujarBG(bg,pantalla,x,y)
+        Componentes.dibujar_panel(fondo,pantalla)
+        #Reproducir musica infinitamente
+        #Escena del menu
+        if (inicio == -1):
+            Escenas.inicio(pantalla)
+        #Escena finalizada
+        if (num >= numQA):
+            inicio = -2
+            Escenas.fin(pantalla,8,numQA)
+        #Escena de la trivia
+        if (inicio >= 0 and num < numQA):
+            Escenas.trivia(num,pantalla)
 
+        #Eventos en ocurren a lo largo del juego
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 gameOver = True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     gameOver = True
-                if event.key == pygame.K_q:
-                    t_f = Componentes.textop(Componentes.respuestaT("q"))
-                    pantalla.blit(t_f,(1000,250))
-                    pygame.time.delay(400)
-                    t_f = pygame.Surface([0,0])
+                if (event.key == pygame.K_q and inicio !=-1 and inicio != -2):
+                    Componentes.sonCI(correcto,incorrecto,"q",pantalla)
+                    pygame.time.wait(1500)
                     num +=1
-                if event.key == pygame.K_w:
-                    t_f = Componentes.textop(Componentes.respuestaT("w"))
-                    pantalla.blit(t_f,(1000,250))
-                    pygame.time.delay(400)
-                    t_f = pygame.Surface([0,0])
-                    num +=1
-
-                if event.key == pygame.K_e:
-                    t_f = Componentes.textop(Componentes.respuestaT("e"))
-                    pantalla.blit(t_f,(1000,250))
-                    pygame.time.delay(400)
-                    t_f = pygame.Surface([0,0])
-                    num +=1
-
-
+                if event.key == pygame.K_w and inicio !=-1 and inicio != -2:
+                    Componentes.sonCI(correcto,incorrecto,"w",pantalla)
+                    pygame.time.wait(1500)
+                    num+=1
+                if event.key == pygame.K_e and inicio !=-1 and inicio != -2:
+                    Componentes.sonCI(correcto,incorrecto,"e",pantalla)
+                    pygame.time.wait(1500)
+                    num+=1
+                if (event.key == pygame.K_q and inicio == -1):
+                    inicio = 0
+                if event.key == pygame.K_q and inicio == -2:
+                    inicio = -1
+                    num =0
         #Actualizamos la pantalla
         pygame.display.update()
     pygame.quit()

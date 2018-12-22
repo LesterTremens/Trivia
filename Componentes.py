@@ -1,6 +1,8 @@
 import pygame
 import SystemTrivia
 
+tache = pygame.image.load("tache.png")
+palomita = pygame.image.load("palomita.png")
 #Lita de preguntas y respuestas
 quiz_ans = SystemTrivia.get_QA(SystemTrivia.archivo)
 
@@ -18,13 +20,17 @@ class Boton(pygame.sprite.Sprite):
         self.imagen_actual = imagen
         self.rect = self.imagen_actual.get_rect()
         self.rect.left,self.rect.top = (x,y)
-    def update(self,pantalla):
-        pantalla.blit(self.imagen_actual,self.rect)
+    def update(self,pantalla,x,y):
+        pan = pygame.transform.scale(self.imagen_actual,(x,y))
+        pantalla.blit(pan,self.rect)
 
-def dibujar_panel(imagen, pantalla,x,y):
-    panel = pygame.transform.scale(imagen,(1400,675))
-    pantalla.blit(panel,(265,75))
+def dibujar_panel(imagen, pantalla):
+    pan1 = pygame.transform.scale(imagen,(1600,900))
+    pantalla.blit(pan1,(150,90))
 
+def dibujarBG(imagen,pantalla,x,y):
+    pan2 = pygame.transform.scale(imagen,(x,y))
+    pantalla.blit(pan2,(0,0))
 
 def fuente(len):
     #Ruta del tipo de fuente
@@ -34,6 +40,15 @@ def fuente(len):
     #Regresamos el tipo de fuente creado
     return pygame.font.Font(font_path,font_size)
 #Funcion que devuelve el texto correspondiente a una pregunta o una respuesta
+
+def sonCI(correcto,incorrecto,v,pantalla):
+    if respuestaT(v) == "T":
+        #pantalla.blit(palomita,(1000,200))
+        correcto.play()
+    else:
+        #pantalla.blit(tache,(1000,200))
+        incorrecto.play()
+        
 def respuestaT(opcion):
     if opcion == "q":
         return quiz_ans[0].ans1[1]
