@@ -1,8 +1,43 @@
-*¿Que son los robots?
-1F-Son humanos
-2F-Son producto de tu imagincación
-3T-Ans3
-*¿Quien creo a los robots?
-1F-ans1
-2T-ans2
-3F-ans3
+*¿Qué es un robot?
+1T-Es un dispositivo mecánico controlado por una computadora.
+2F-Es un postre con helado y galletas.
+3F-Son unos zapatos de colores.
+*¿Qué es la robótica?
+1F-Es un baile de robots.
+2F-Es una película.
+3T-Es la ciencia que diseña y construye robots.
+*¿Por qué es importante la robótica?
+1F-Porque son divertidos
+2T-Porque ayudan a los humanos en diversas tareas
+3F-Porque salen en películas
+*El sistema de control de un robot es el equivalente al
+1F-sistema digestivo de los humanos.
+2T-sistema nervioso de los humanos.
+3F-sistema financiero.
+*El cerebro de un robot es:
+1T-Un circuito electrónico. 
+2F-Un caramelo.
+3F-Un tarjeta de felicitación.
+*Los dispositivos que permiten al robot percibir su entorno o el ambiente en donde se encuentran son:
+1F-Los sentidos
+2T-Los sensores
+3F-Los sonidos
+*Un robot obtiene energía de:
+1F-Los chocolates
+2T-Sus baterías
+3F-Sus motores
+*Los sistemas que permiten al robot moverse son:
+1F-Los actores
+2T-Los actuadores
+3F-Los cantantes
+*Los robots que se parecen a los humanos se llaman
+1F-ternuras
+2T-androides
+3F-creturoides
+*Un autor de ciencia ficción que escribió historias de ciencia ficción sobre robots fue
+1F-Rosa Saldivar
+2T-Isacc Asimov
+3F-Artur Matur
+
+
+
