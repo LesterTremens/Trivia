@@ -18,10 +18,10 @@ def main():
     #Fotogramaas por segundo a los que se ejecuta los update
     reloj = pygame.time.Clock()
     #Cargando Sonidos
-    correcto = pygame.mixer.Sound("Correcto.wav")
-    incorrecto = pygame.mixer.Sound("Incorrecto.wav")
+    correcto = pygame.mixer.Sound("Musica/Correcto.wav")
+    incorrecto = pygame.mixer.Sound("Musica/Incorrecto.wav")
     #Cargando imagenes
-    fondo = pygame.image.load("FondoA.png")
+    fondo = pygame.image.load("Img/FondoA.png")
     #Color del bg
     bg=(199,174,180)
     #Superficie invisible para pueba de la respuesta
@@ -58,16 +58,21 @@ def main():
                 if event.key == pygame.K_ESCAPE:
                     gameOver = True
                 if (event.key == pygame.K_q and inicio !=-1 and inicio != -2):
-                    Componentes.sonCI(correcto,incorrecto,"q",pantalla)
-                    pygame.time.wait(1500)
+                    a = Componentes.respuestaT("q",num)
+                    Componentes.sonCI(correcto,incorrecto,a,pantalla)
                     num +=1
                 if event.key == pygame.K_w and inicio !=-1 and inicio != -2:
-                    Componentes.sonCI(correcto,incorrecto,"w",pantalla)
-                    pygame.time.wait(1500)
+                    a = Componentes.respuestaT("w",num)
+                    Componentes.sonCI(correcto,incorrecto,a,pantalla)
                     num+=1
                 if event.key == pygame.K_e and inicio !=-1 and inicio != -2:
+<<<<<<< HEAD
                     Componentes.sonCI(correcto,incorrecto,"e",pantalla)
                     #pygame.time.wait(1500)
+=======
+                    a = Componentes.respuestaT("e",num)
+                    Componentes.sonCI(correcto,incorrecto,a,pantalla)
+>>>>>>> 6e54047102ffafe07a291cba0f53255bb0765fef
                     num+=1
                 if (event.key == pygame.K_q and inicio == -1):
                     inicio = 0

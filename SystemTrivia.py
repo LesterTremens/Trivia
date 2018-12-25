@@ -1,6 +1,10 @@
 import pygame
 #Archivo que contiene la trivia
+<<<<<<< HEAD
 archivo = "Trivia.txt"
+=======
+archivo = "Textos/Trivia.txt"
+>>>>>>> 6e54047102ffafe07a291cba0f53255bb0765fef
 class QuizAndAns():
     def __init__(self,question,ans1,ans2,ans3):
         self.question = question

@@ -1,8 +1,9 @@
 import pygame
 import SystemTrivia
+import os
 
-tache = pygame.image.load("tache.png")
-palomita = pygame.image.load("palomita.png")
+tache = pygame.image.load("Img/tache.png")
+palomita = pygame.image.load("Img/palomita.png")
 #Lita de preguntas y respuestas
 quiz_ans = SystemTrivia.get_QA(SystemTrivia.archivo)
 
@@ -34,7 +35,7 @@ def dibujarBG(imagen,pantalla,x,y):
 
 def fuente(len):
     #Ruta del tipo de fuente
-    font_path = "Lucida.ttf"
+    font_path = "Textos/Lucida.ttf"
     #Tamaño deseado de la fuente
     font_size = len
     #Regresamos el tipo de fuente creado
@@ -42,20 +43,24 @@ def fuente(len):
 #Funcion que devuelve el texto correspondiente a una pregunta o una respuesta
 
 def sonCI(correcto,incorrecto,v,pantalla):
+<<<<<<< HEAD
     if respuestaT(v) == "T":
+=======
+    if v == "T":
+>>>>>>> 6e54047102ffafe07a291cba0f53255bb0765fef
         pantalla.blit(palomita,(1000,200))
         correcto.play()
     else:
         pantalla.blit(tache,(1000,200))
         incorrecto.play()
-        
-def respuestaT(opcion):
+
+def respuestaT(opcion,num):
     if opcion == "q":
-        return quiz_ans[0].ans1[1]
+        return quiz_ans[num].ans1[1]
     if opcion == "w":
-        return quiz_ans[0].ans2[1]
+        return quiz_ans[num].ans2[1]
     if opcion == "e":
-        return quiz_ans[0].ans3[1]
+        return quiz_ans[num].ans3[1]
 
 def textop(opcion):
     font1 = fuente(50)
