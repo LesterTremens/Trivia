@@ -4,17 +4,17 @@ import Componentes
 from Componentes import Boton
 
 #Cargamos imagenes
-bRojo = pygame.image.load("botonRojo.png")
-bVerde = pygame.image.load("botonVerde.png")
-bAmarillo = pygame.image.load("botonAmarillo.png")
-robot1 = pygame.image.load("robot1.png")
-robot2 = pygame.image.load("robot2.png")
-robot3 = pygame.image.load("robot3.png")
-robot4 = pygame.image.load("robot4.png")
-bInicio = pygame.image.load("Inicio.png")
-palanca1 = pygame.image.load("palanca1.png")
-palanca2 = pygame.image.load("palanca2.png")
-finish = pygame.image.load("finish.png")
+bRojo = pygame.image.load("Img/botonRojo.png")
+bVerde = pygame.image.load("Img/botonVerde.png")
+bAmarillo = pygame.image.load("Img/botonAmarillo.png")
+robot1 = pygame.image.load("Img/robot1.png")
+robot2 = pygame.image.load("Img/robot2.png")
+robot3 = pygame.image.load("Img/robot3.png")
+robot4 = pygame.image.load("Img/robot4.png")
+bInicio = pygame.image.load("Img/Inicio.png")
+palanca1 = pygame.image.load("Img/palanca1.png")
+palanca2 = pygame.image.load("Img/palanca2.png")
+finish = pygame.image.load("Img/finish.png")
 
 #Creacion de botones
 botonR = Boton(bRojo,300,280)
@@ -53,8 +53,8 @@ def trivia(numQA,pantalla):
     pantalla.blit(Componentes.texto(numQA,"question"),(280,100))
     #Colocamos el texto de las posibles respuestas
     pantalla.blit(Componentes.texto(numQA,"ans1"),(475,300))
-    pantalla.blit(Componentes.texto(numQA,"ans3"),(475,500))
-    pantalla.blit(Componentes.texto(numQA,"ans2"),(475,700))
+    pantalla.blit(Componentes.texto(numQA,"ans2"),(475,500))
+    pantalla.blit(Componentes.texto(numQA,"ans3"),(475,700))
     #Botones
     botonR.update(pantalla,130,130)
     botonV.update(pantalla,130,130)
