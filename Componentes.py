@@ -43,10 +43,10 @@ def fuente(len):
 
 def sonCI(correcto,incorrecto,v,pantalla):
     if respuestaT(v) == "T":
-        #pantalla.blit(palomita,(1000,200))
+        pantalla.blit(palomita,(1000,200))
         correcto.play()
     else:
-        #pantalla.blit(tache,(1000,200))
+        pantalla.blit(tache,(1000,200))
         incorrecto.play()
         
 def respuestaT(opcion):
