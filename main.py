@@ -21,7 +21,6 @@ def main():
     #Cargando Sonidos
     pygame.mixer.music.load("Musica/Musica.mp3")
     pygame.mixer.music.play(-1)
-
     correcto = pygame.mixer.Sound("Musica/Correcto.wav")
     incorrecto = pygame.mixer.Sound("Musica/Incorrecto.wav")
     #Cargando imagenes
@@ -63,6 +62,7 @@ def main():
     correctas =0
     numQA = len(Componentes.quiz_ans)
     n=0
+
     #LoopPrincipal
     while gameOver !=True:
 
