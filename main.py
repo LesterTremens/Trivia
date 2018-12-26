@@ -8,6 +8,17 @@ from Componentes import Robots
 def main():
     #Inicializamos modulos de python
     pygame.init()
+    q0 = pygame.mixer.Sound("Musica/q1.ogg")
+    q1 = pygame.mixer.Sound("Musica/q2.ogg")
+    q2 = pygame.mixer.Sound("Musica/q3.ogg")
+    q3 = pygame.mixer.Sound("Musica/q4.ogg")
+    q4 = pygame.mixer.Sound("Musica/q5.ogg")
+    q5 = pygame.mixer.Sound("Musica/q6.ogg")
+    q6 = pygame.mixer.Sound("Musica/q7.ogg")
+    q7 = pygame.mixer.Sound("Musica/q8.ogg")
+    q8 = pygame.mixer.Sound("Musica/q9.ogg")
+    q9 = pygame.mixer.Sound("Musica/q10.ogg")
+    listaSP = [q0,q1,q2,q3,q4,q5,q6,q7,q8,q9]
     #Tamaño de la pantalla
     pantalla= pygame.display.set_mode((0,0), pygame.FULLSCREEN)
     #Dimensiones de la pantalla
@@ -62,7 +73,7 @@ def main():
     correctas =0
     numQA = len(Componentes.quiz_ans)
     n=0
-
+    t = True
     #LoopPrincipal
     while gameOver !=True:
 
@@ -89,10 +100,12 @@ def main():
         #Escena de la trivia
         if (inicio >= 0 and num < numQA):
             robotT.update(pantalla,n)
-            Escenas.trivia(num,pantalla)
+            Escenas.trivia(num,pantalla,t,num)
+            t = False
         n+=1
         if n > 3:
             n=0
+
         #Eventos en ocurren a lo largo del juego
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -104,6 +117,7 @@ def main():
                     botonR.update(pantalla,130,130)
                     a = Componentes.respuestaT("q",num)
                     Componentes.sonCI(correcto,incorrecto,a,pantalla)
+                    t = True
                     num +=1
                     if a == "T":
                         correctas +=1
@@ -111,6 +125,7 @@ def main():
                     botonV.update(pantalla,130,130)
                     a = Componentes.respuestaT("w",num)
                     Componentes.sonCI(correcto,incorrecto,a,pantalla)
+                    t = True
                     if a == "T":
                         correctas +=1
                     num+=1
@@ -118,6 +133,7 @@ def main():
                     botonA.update(pantalla,130,130)
                     a = Componentes.respuestaT("e",num)
                     Componentes.sonCI(correcto,incorrecto,a,pantalla)
+                    t = True
                     if a == "T":
                         correctas +=1
 

@@ -3,7 +3,17 @@ import pygame
 import Componentes
 from Componentes import Boton
 from Componentes import Robots
-
+pygame.init()
+q0 = pygame.mixer.Sound("Musica/q1.ogg")
+q1 = pygame.mixer.Sound("Musica/q2.ogg")
+q2 = pygame.mixer.Sound("Musica/q3.ogg")
+q3 = pygame.mixer.Sound("Musica/q4.ogg")
+q4 = pygame.mixer.Sound("Musica/q5.ogg")
+q5 = pygame.mixer.Sound("Musica/q6.ogg")
+q6 = pygame.mixer.Sound("Musica/q7.ogg")
+q7 = pygame.mixer.Sound("Musica/q8.ogg")
+q8 = pygame.mixer.Sound("Musica/q9.ogg")
+q9 = pygame.mixer.Sound("Musica/q10.ogg")
 #Cargamos imagenes
 bRojo = pygame.image.load("Img/botonRojo.png")
 bVerde = pygame.image.load("Img/botonVerde.png")
@@ -29,19 +39,7 @@ bfinish = Boton(finish,500,85)
 botonF = Boton(bInicio,735,600)
 
 #Sonidos
-listaSP= []
-q0 = pygame.mixer.Sound("Musica/q0.wav")
-q1 = pygame.mixer.Sound("Musica/q1.wav")
-q2 = pygame.mixer.Sound("Musica/q2.wav")
-q3 = pygame.mixer.Sound("Musica/q3.wav")
-q4 = pygame.mixer.Sound("Musica/q4.wav")
-q5 = pygame.mixer.Sound("Musica/q5.wav")
-q6 = pygame.mixer.Sound("Musica/q6.wav")
-q7 = pygame.mixer.Sound("Musica/q7.wav")
-q8 = pygame.mixer.Sound("Musica/q8.wav")
-q9 = pygame.mixer.Sound("Musica/q9.wav")
-listaSp = [q0,q1,q2,q3,q4,q5,q6,q7,q8,q9]
-
+listaSP = [q0,q1,q2,q3,q4,q5,q6,q7,q8,q9]
 
 def inicio(pantalla):
     botonI.update(pantalla,400,150)
@@ -56,12 +54,9 @@ def fin(pantalla,n,a):
     pantalla.blit(Componentes.fuente(25).render("Volver a empezar",True,(0,0,0)),(777,615))
     pantalla.blit(Componentes.fuente(36).render("Obtuviste " + str(n) + " de " + str(a) + " aciertos",True,(0,0,0)),(675,460))
 
-def trivia(numQA,pantalla):
-    s = 0
-    listaSP[s].play(s)
-    s+=1
-    if s > len(listaSP):
-        s=0
+def trivia(numQA,pantalla,t,s):
+    if t == True:
+        listaSP[s].play(0,0,0)
     #Colocamos donde se mostrara el texto de la pregunta.
     pantalla.blit(Componentes.texto(numQA,"question"),(280,100))
     #Colocamos el texto de las posibles respuestas
