@@ -1,7 +1,6 @@
 import pygame
 import SystemTrivia
 import os
-
 tache = pygame.image.load("Img/tache.png")
 palomita = pygame.image.load("Img/palomita.png")
 #Lita de preguntas y respuestas

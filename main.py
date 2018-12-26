@@ -9,9 +9,11 @@ def main():
     #Inicializamos modulos de python
     pygame.init()
     #Tamaño de la pantalla
-    pantalla= pygame.display.set_mode((0,0),pygame.FULLSCREEN)
+    pantalla= pygame.display.set_mode((0,0), pygame.FULLSCREEN)
     #Dimensiones de la pantalla
     x,y = pantalla.get_size()
+    #1824 984
+    print(x,y)
     #Nombre que se refleja en la ventana
     pygame.display.set_caption("Trivia")
     #Fotogramaas por segundo a los que se ejecuta los update
@@ -118,6 +120,7 @@ def main():
                     Componentes.sonCI(correcto,incorrecto,a,pantalla)
                     if a == "T":
                         correctas +=1
+
                     num+=1
                 if (event.key == pygame.K_q and inicio == -1):
                     inicio = 0
