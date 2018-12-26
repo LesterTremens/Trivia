@@ -15,10 +15,10 @@
 2T-sistema nervioso de los humanos.
 3F-sistema financiero.
 *El cerebro de un robot es:
-1T-Un circuito electrónico. 
+1T-Un circuito electrónico.
 2F-Un caramelo.
 3F-Un tarjeta de felicitación.
-*Los dispositivos que permiten al robot percibir su entorno o el ambiente en donde se encuentran son:
+*Dispositivos que permiten al robot percibir su entorno:
 1F-Los sentidos
 2T-Los sensores
 3F-Los sonidos
@@ -34,10 +34,7 @@
 1F-ternuras
 2T-androides
 3F-creturoides
-*Un autor de ciencia ficción que escribió historias de ciencia ficción sobre robots fue
+*Escribio las leyes de la robotica
 1F-Rosa Saldivar
 2T-Isacc Asimov
 3F-Artur Matur
-
-
-

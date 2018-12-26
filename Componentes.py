@@ -25,6 +25,20 @@ class Boton(pygame.sprite.Sprite):
         pan = pygame.transform.scale(self.imagen_actual,(x,y))
         pantalla.blit(pan,self.rect)
 
+class Robots(pygame.sprite.Sprite):
+    def __init__(self,imagen1,imagen2,imagen3,x =200,y = 200):
+        self.imagen_1 = imagen1
+        self.imagen_2 = imagen2
+        self.imagen_3 = imagen3
+        self.imagenes= [self.imagen_1,self.imagen_2,self.imagen_1,self.imagen_3]
+        self.imagen = self.imagenes[0]
+        self.rect=self.imagen.get_rect()
+        self.rect.top,self.rect.left= (x,y)
+
+    def update(self,pantalla,n):
+        for r in self.imagenes:
+            pantalla.blit(self.imagenes[n],self.rect)
+
 def dibujar_panel(imagen, pantalla):
     pan1 = pygame.transform.scale(imagen,(1600,900))
     pantalla.blit(pan1,(150,90))
@@ -67,14 +81,18 @@ def textop(opcion):
 
 def texto(n,opcion):
     #Tipos de fuente y asignamos el tamaño
-    font = fuente(100)
-    font1 = fuente(50)
+    font = fuente(50)
+    font1 = fuente(30)
     #Usamos la funcion render para obtener el texto correspondiente
     if opcion == "question":
-        return font.render(quiz_ans[n].question,True,(0,0,0))
+        f = len(quiz_ans[n].question) -1
+        return font.render(quiz_ans[n].question[1:f],True,(0,0,0))
     if opcion == "ans1":
-        return font1.render((quiz_ans[n].ans1[2:]),True,(0,0,0))
+        f = len(quiz_ans[n].ans1) -1
+        return font1.render((quiz_ans[n].ans1[2:f]),True,(0,0,0))
     if opcion == "ans2":
-        return font1.render((quiz_ans[n].ans2[2:]),True,(0,0,0))
+        f = len(quiz_ans[n].ans2) -1
+        return font1.render((quiz_ans[n].ans2[2:f]),True,(0,0,0))
     if opcion == "ans3":
-        return font1.render((quiz_ans[n].ans3[2:]),True,(0,0,0))
+        f = len(quiz_ans[n].ans3) -1
+        return font1.render((quiz_ans[n].ans3[2:f]),True,(0,0,0))
